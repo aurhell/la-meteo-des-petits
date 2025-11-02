@@ -1,20 +1,14 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from "vue"
 
+import FriendSelector from "./components/states/FriendSelector.vue"
+
 type WeatherData = {
   temperature: number
   weathercode: number
   morningTemp: number
   afternoonTemp: number
 }
-
-// --- Variables de base ---
-const animals = [
-  "🐱",
-  "🐶",
-  "🐊",
-  "🦄",
-]
 
 // --- Magic numbers as constants ---
 const MONTH_OFFSET = 1
@@ -390,19 +384,7 @@ onMounted(()=>{
         v-else-if="!selectedAnimal"
         class="flex flex-1 flex-col items-center justify-center gap-4"
       >
-        <p class="text-lg font-medium text-blue-800">
-          Choisis ton ami :
-        </p>
-        <div class="flex gap-4 text-5xl">
-          <button
-            v-for="animal in animals"
-            :key="animal"
-            class="rounded-2xl bg-white p-3 shadow-lg transition-transform duration-200 hover:scale-110 hover:shadow-xl"
-            @click="selectedAnimal=animal"
-          >
-            {{ animal }}
-          </button>
-        </div>
+        <FriendSelector @update:selected-friend="(friend)=>{ selectedAnimal=friend }" />
       </div>
 
       <div
