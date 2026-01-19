@@ -20,8 +20,6 @@ pnpm dev
 pnpm build
 ```
 
-L'app est maintenant une **Progressive Web App (PWA)** complète! Voir [PWA_SETUP.md](PWA_SETUP.md) pour l'installation sur iPhone et autres appareils.
-
 ### Lint
 
 ```sh
@@ -59,20 +57,3 @@ VITE_DEBUG_MODE=true
 # Forcer à cacher
 VITE_DEBUG_MODE=false
 ```
-
-## Architecture
-
-L'app suit une architecture modulaire :
-
-- **Composables** (`src/composables/`) - Logique métier réutilisable
-  - `useSeason` - Gestion des saisons et thèmes
-  - `useWeather` - Fetch et gestion de la météo
-  - `useWeatherUI` - Formatage emoji et animations
-  - `useTemperature` - Logique de la barre température
-  - `useTTS` - Synthèse vocale avec ElevenLabs/Web Speech
-
-- **Composants** (`src/components/`) - Composants UI réutilisables
-  - `WeatherDisplay` - Affichage météo
-  - `CharacterButton` - Personnage + TTS
-  - `WeatherBackground` - Animations de fond
-  - `FriendSelector` - Sélection du personnage
