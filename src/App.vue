@@ -163,7 +163,7 @@ onMounted((): void => {
       </div>
 
       <!-- Content area -->
-      <div class="flex w-full flex-1 flex-col items-center justify-center gap-6 overflow-hidden p-6">
+      <div class="flex w-full flex-1 flex-col items-center justify-center gap-4 overflow-y-auto px-4 py-8 sm:gap-6 sm:px-6">
         <!-- Loading state -->
         <div
           v-if="isLoading"
@@ -189,13 +189,13 @@ onMounted((): void => {
           class="flex w-full flex-1 flex-col items-center justify-center gap-4"
         >
           <!-- Animal + Weather emoji side by side -->
-          <div class="flex items-center justify-center gap-6">
+          <div class="flex items-center justify-center gap-3 sm:gap-6">
             <!-- Animal -->
-            <div class="animate-gentle-bounce text-[120px] drop-shadow-xl">
+            <div class="animate-gentle-bounce text-6xl drop-shadow-xl sm:text-[120px]">
               {{ selectedAnimal }}
             </div>
             <!-- Weather emoji -->
-            <div class="text-[120px] drop-shadow-lg">
+            <div class="text-6xl drop-shadow-lg sm:text-[120px]">
               <span
                 class="inline-block animate-gentle-bounce"
                 style="animation-delay: 0.5s;"
@@ -206,13 +206,13 @@ onMounted((): void => {
           </div>
 
           <!-- Clothing advice emojis -->
-          <div class="text-5xl">
+          <div class="text-3xl sm:text-5xl">
             {{ useWeatherUI().clothingAdvice(weather.temperature, weather.weathercode) }}
           </div>
 
           <!-- Temperature -->
           <div
-            class="text-5xl font-black leading-none transition-colors duration-500"
+            class="text-4xl font-black leading-none transition-colors duration-500 sm:text-5xl"
             :style="{ color: useWeatherUI().temperatureToColor(weather.temperature) }"
           >
             {{ Math.round(weather.temperature) }}°
@@ -224,13 +224,13 @@ onMounted((): void => {
           </div>
 
           <!-- Playful text -->
-          <p class="text-sm font-bold text-purple-700">
+          <p class="text-xs font-bold text-purple-700 sm:text-sm">
             {{ getFullWeatherText() }}
           </p>
 
           <!-- Button to speak weather -->
           <button
-            class="flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 px-6 py-3 text-base font-bold text-white shadow-lg transition-all duration-200 hover:from-orange-600 hover:via-pink-600 hover:to-purple-700 hover:shadow-xl active:scale-95 disabled:cursor-not-allowed disabled:opacity-60"
+            class="flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 px-4 py-3 text-sm font-bold text-white shadow-lg transition-all duration-200 hover:from-orange-600 hover:via-pink-600 hover:to-purple-700 hover:shadow-xl active:scale-95 disabled:cursor-not-allowed disabled:opacity-60 sm:px-6 sm:text-base"
             :disabled="isSpeaking || isTTSLoading"
             @click="speakWeather"
           >
