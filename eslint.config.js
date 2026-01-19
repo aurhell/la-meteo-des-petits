@@ -24,6 +24,18 @@ export default defineConfigWithVueTs(
     files: ["src/**/*.{ts,js,vue}"],
   },
 
+  // Test files configuration
+  {
+    name: "rules/test-files",
+    files: ["tests/**/*.{ts,js}"],
+    languageOptions: {
+      parserOptions: {
+        parser: "@typescript-eslint/parser",
+        requireConfigFile: false,
+      },
+    },
+  },
+
   // Vue & TS recommended configurations
   pluginVue.configs["flat/strongly-recommended"],
   vueTsConfigs.recommended,
@@ -42,8 +54,8 @@ export default defineConfigWithVueTs(
       "vue/html-closing-bracket-newline": [
         "error",
         {
-          "singleline": "never",
-          "multiline": "always",
+          singleline: "never",
+          multiline: "always",
         },
       ],
       "vue/multi-word-component-names": [
@@ -52,7 +64,7 @@ export default defineConfigWithVueTs(
           ignores: [
             "Roue",
             "Tooltip",
-          ], 
+          ],
         },
       ],
       "vue/no-restricted-component-options": [
@@ -186,11 +198,13 @@ export default defineConfigWithVueTs(
           paths: [
             {
               name: "lodash",
-              message: "Please use specific lodash imports to reduce bundle size, e.g., `import debounce from 'lodash/debounce'`.",
+              message:
+                "Please use specific lodash imports to reduce bundle size, e.g., `import debounce from 'lodash/debounce'`.",
             },
             {
               name: "moment",
-              message: "Consider using `date-fns` or `dayjs` for better performance and smaller bundle size.",
+              message:
+                "Consider using `date-fns` or `dayjs` for better performance and smaller bundle size.",
             },
           ],
           patterns: [],
@@ -210,7 +224,7 @@ export default defineConfigWithVueTs(
       "prefer-rest-params": "warn",
       "prefer-spread": "warn",
       "prefer-template": "warn",
-      "eqeqeq": [
+      eqeqeq: [
         "error",
         "always",
         { null: "ignore" },
@@ -241,10 +255,6 @@ export default defineConfigWithVueTs(
         "error",
         "1tbs",
         { allowSingleLine: true },
-      ],
-      "@stylistic/semi": [
-        "error",
-        "never",
       ],
       "@stylistic/indent": [
         "error",
@@ -296,7 +306,7 @@ export default defineConfigWithVueTs(
       "@stylistic/array-bracket-spacing": [
         "error",
         "never",
-        { "singleValue": false },
+        { singleValue: false },
       ],
       "@stylistic/comma-dangle": [
         "error",

@@ -28,3 +28,10 @@ coverage
 *.sw?
 
 *.tsbuildinfo
+
+CHANGES_PWA.md
+SECURITY_AUDIT.md
+SECURITY_CHECKLIST.txt
+SOLUTION_API_PROXY.md
+VERCEL_SETUP.md
+PWA_SETUP.md
